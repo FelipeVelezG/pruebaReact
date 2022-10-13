@@ -11,15 +11,15 @@ export function Footer() {
                         <h4>Aprendiz SURA</h4>
                         <h4>2022</h4>
                     </div>
-                    <div className="col-12 col-md-6 border-start aline-self-center" >
-                        <div>
+                    <div className="col-12 col-md-6 border-start aline-self-center " >
+                        <div className="d-flex justify-content-around">
                             <a href="https://es-la.facebook.com/" className="text-light" >
                                 <i className="bi bi-facebook fs-1"></i>
                             </a>
-                            <a href="https://es-la.facebook.com/" className="text-light" >
+                            <a href="https://github.com/" className="text-light" >
                                 <i className="bi bi-github fs-1 "></i>
                             </a>
-                            <a href="https://es-la.facebook.com/" className="text-light" >
+                            <a href="https://www.instagram.com/" className="text-light" >
                                 <i className="bi bi-instagram fs-1"></i>
                             </a>
                             

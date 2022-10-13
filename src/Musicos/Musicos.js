@@ -84,7 +84,7 @@ export function Musicos() {
                     })
                 }
             </div>
-            <div className="row ro-col-1 row-cols-md-2 g-3 m-3">
+            <div className="row row-col-1 row-cols-md-2 g-3 m-3">
                 {
                     conciertosMemorables.map(function(conciertoMemorable){
                         return(

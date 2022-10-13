@@ -1,22 +1,66 @@
 import { servicioSpoty } from "../services/servicioSpoty.js"
-import { useState } from "react"
+import { serviciosTOKEN } from "../services/serviciosTOKEN.js"
+import { useState, useEffect } from "react"
 
-export function Albumes(){
+export function Albumes() {
+    
 
     //DEclarando mi primer useState
-    const[canciones,setCanciones]=useState(null)
+    const [canciones, setCanciones] = useState(null)
 
-    servicioSpoty()
-    .then(function(respuesta){
-        setCanciones(respuesta.tracks)
-    })
-    console.log(canciones)
+    //useState para la carga de datos
+    const [carga, setCarga] = useState(true)
 
-    return(
-        <>
-            <div className="row-col-1 row-cols-md-4 g-3">
+    //Usando el useEffect
+    useEffect(function () {
+        servicioSpoty()
+            .then(function (respuesta) {
+                console.log(respuesta)
+                setCanciones(respuesta.tracks)
+                setCarga(false)
+            })
+        // console.log(canciones)
+    }, [])
 
-            </div>
-        </>
-    )
+    if(carga==true){
+
+        return(
+
+            <>
+                <h1>Estoy cargando...</h1>
+            </>
+
+        )
+
+    }
+    else{
+        return (
+            <>
+                <div className="row row-col-1 row-cols-md-5 g-3">
+                {
+                 canciones.map(function (cancion) {
+                    return (
+                        <>
+                            <div className="col mt-5">
+                                <div className="card h-100 ">
+                                    <img src={cancion.album.images[0].url}
+                                        className="img-fluid w-100 h-100" alt="foto">
+                                    </img>
+                                    <audio src={cancion.preview_url} controls></audio>
+                                    
+                                </div>
+
+                            </div>
+                        </>
+                    )
+                })
+               }
+                </div>
+               
+            </>
+        )
+    }
+
+
+    
 }
